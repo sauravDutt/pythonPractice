@@ -1,3 +1,4 @@
+from html import entities
 import pygame
 import sys
 import random
@@ -30,4 +31,31 @@ class Snake():
             if len(self.positions) > self.length:
                 self.positions.pop()
     
-    # def reset(self):
+    def reset(self):
+        self.length = 1
+        self.positions = [((screen_width/2), (screen_height/2))]
+        self.direction = random.choice([up, down, left, right])
+        self.score = 0
+    
+    def draw(self, surface):
+        for p in self.positions:
+            r = pygame.Rect((p[0], p[1]), (gridsize, gridsize))
+            pygame.draw.rect(surface, self.color, r)
+            pygame.draw.rect(surface, (93, 216, 228), r, 1)
+    
+    def handle_keys(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    self.turn(up)
+                elif event.key == pygame.K_DOWN:
+                    self.turn(down)
+                elif event.key == pygame.K_LEFT:
+                    self.turn(left)
+                elif event.key == pygame.K_RIGHT:
+                    self.turn(right)
+
+
