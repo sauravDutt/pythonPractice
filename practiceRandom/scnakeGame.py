@@ -22,7 +22,7 @@ class Snake():
     def move(self):
         cur = self.get_head_postion()
         x, y = self.direction
-        new = (((cur[0]+(x*gridsize)) %screen_width), (cur[0]+(y*gridsize)) %screen_height)
+        new = (((cur[0]+(x*gridsize)) %screen_width), (cur[1]+(y*gridsize)) %screen_height)
         if len(self.positions) > 2 and new in self.positions[2: ]:
             self.reset()
         else:
@@ -64,7 +64,7 @@ class Food():
         self.color = (223, 163, 49)
         self.randomize_position()
 
-    def randomize_position():
+    def randomize_position(self):
         self.position = (random.randint(0, grid_width-1)*gridsize, random.randint(0, grid_height-1)*gridsize)
     
     def draw(self, surface):
@@ -82,6 +82,8 @@ def drawGrid(surface):
                 rr = pygame.Rect((x*gridsize, y*gridsize), (gridsize, gridsize))
                 pygame.draw.rect(surface, (84, 194, 205), rr)
 
+
+# These are the global variables 
 screen_width = 480
 screen_height = 480
 
@@ -93,5 +95,43 @@ up = (0, -1)
 down = (0, 1)
 left = (-1, 0)
 right = (1, 0)
+# End of global variables
 
+# Main game function :-
+def main():
+    pygame.init()
+
+    clock = pygame.time.Clock()
+    screen = pygame.display.set_mode((screen_width, screen_height), 0, 32)
+
+    surface = pygame.Surface(screen.get_size())
+    surface = surface.convert()
+    drawGrid(surface)
+
+    # Calling those classes into variables, so that I can use the variable name to access functions from those classes rather than writting className() befor calling their function 
+    snake = Snake()
+    food = Food()
+
+    myfont = pygame.font.SysFont("monospace", 16)
+
+    # Game Loop
+    while (True):
+        clock.tick(10)
+        snake.handle_keys()
+        drawGrid(surface)
+        snake.move()
+        if snake.get_head_postion() == food.position:
+            snake.length += 1
+            snake.score += 1
+            food.randomize_position()
+        snake.draw(surface)
+        food.draw(surface)
+        screen.blit(surface, (0,0))
+        textOne = myfont.render("SnakeGame sauravDutt", 1, (0, 0, 0))
+        text = myfont.render("Score {0}".format(snake.score), 1, (0, 0, 0))
+        screen.blit(textOne, (4, 1))
+        screen.blit(text, (4,16))
+        pygame.display.update()
+
+main()
 
