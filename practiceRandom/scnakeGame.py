@@ -1,3 +1,7 @@
+# Before starting with the code, you first havto install pygame library 
+# pip3 install pygame
+# And follow along to make a simple yet cool scnake game : - - - -
+
 import pygame
 import sys
 import random
