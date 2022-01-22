@@ -132,7 +132,7 @@ def main():
         food.draw(surface)
         screen.blit(surface, (0,0))
         text = myfont.render("Score {0}".format(snake.score), 1, (0, 0, 0))
-        screen.blit(text, (5,10))
+        screen.blit(text, (5,5))
         Icon = pygame.image.load('icon.png')
         pygame.display.set_caption("snakeGame . sauravdutt.in")
         pygame.display.set_icon(Icon)
