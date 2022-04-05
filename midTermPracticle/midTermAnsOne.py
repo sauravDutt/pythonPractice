@@ -1,0 +1,10 @@
+f = open("read.txt", "w+")
+f.write("\n *************** 6 Python Identifiers are as follows *************** \n\n")
+f.write("1. and, This is a logical operator it returns true if both the operands are true else return false.\n")
+f.write("2. Or, This is also a logical operator it returns true if anyone operand is true else return false.\n")
+f.write("3. not, This is again a logical operator it returns True if the operand is false else return false.\n")
+f.write("4. if, This is used to make a conditional statement.\n")
+f.write("5. elif, Elif is a condition statement used with if statement the elif statement is executed if the previous conditions were not true\n")
+f.write("6. else, Else is used with if and elif conditional statement the else block is executed if the given condition is not true.\n")
+
+f.close()
