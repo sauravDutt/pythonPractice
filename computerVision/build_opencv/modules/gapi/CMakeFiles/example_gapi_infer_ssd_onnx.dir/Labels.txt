@@ -1,9 +1,0 @@
-# Target labels
- Main
- opencv_gapi
- Sample
-# Source files and their labels
-/Users/sauravdutt/Documents/practice/Python/pythonPractice/computerVision/opencv/modules/gapi/samples/infer_ssd_onnx.cpp
- Main
- opencv_gapi
- Sample
