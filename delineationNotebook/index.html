@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delineation | Notebook</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <style>
+        .subtitle {
+            text-align: center;
+            font: size 15px;
+            letter-spacing: 2px;
+            line-height: 15px;
+            margin-top: 25px;
+        }
+        .subtitleTwo {
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <div class="text-3xl" id="output" style="text-align: center;"></div>
+    <div class="subtitle">
+        <p style="margin-bottom: 10px;">
+            This is a Python Notebook
+        </p>
+        <p class="subtitleTwo">
+            Created to Practice Python On the Go...
+        </p>
+        <p class="subtitleTwo">
+            inspired by Jupyter Notebook
+        </p>
+    </div>
+    <br>
+
+
+
+    <py-script>
+        def getSum(x, y):
+            return x / y
+        
+        total = getSum(22,7)
+
+        pyscript.write('output', total)
+    </py-script>
+    <py-repl></py-repl>
+</body>
+</html>
